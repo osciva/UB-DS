@@ -1,0 +1,84 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+    <title>US 13: Veure les 10 activitats més comentades en els últims 7 dies </title>
+    <h3>Com a soci de ceXtrem</h3>
+    <h3>Vull veure les 10 activitats més comentades en els últims 7 dies </h3>
+    <h3>Per saber la opinió de la gent </h3>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Acceptance Criteria 13.1: No hi ha comentaris</h1>
+<p>
+    El sistema dona la opció de veure les 10 activitats més comentades en els últims 7 dies, però no hi ha
+    cap activitat comentada en els últims 7 dies
+</p>
+<div concordion:example="one">
+    <h2>Exemple del test d'acceptació 13.1</h2>
+    El soci li dona a la opció de veure les 10 activitats més comentades en els últims 7 dies pero no hi ha cap comentari.
+    El sistema retorna: <span concordion:assert-equals="comentades()"> NO hi ha cap activitat comentada</span>
+
+
+</div>
+<h1> Acceptance Criteria 13.2: Tot correcte</h1>
+<p>
+    EL sistema dona la opció al soci de veure les 10 activitats més comentades en els últims 7 dies,
+    i el sistema retorna una llista amb les activitats més comentades.
+</p>
+<div concordion:example="two">
+    <h2> Exemple del test d'acceptació 13.2</h2>
+    <table concordion:execute="#comentades()">
+        <tr>
+            <th concordion:set="#posicio">Posició</th>
+            <th concordion:set="#activitat">Activitat</th>
+
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Muntar a cavall</td>
+
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Espeleologia</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Escalada</td>
+
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Senderisme</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Ruta volcànica</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Collir bolets</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Visita a esglèsies romàniques</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Esquiada</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Veure jaciments romans</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Dibuixar paissatges</td>
+        </tr>
+    </table>
+
+
+
+
+</div>
+</body>
+</html>

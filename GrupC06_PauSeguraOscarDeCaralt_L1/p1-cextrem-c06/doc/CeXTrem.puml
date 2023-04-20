@@ -1,0 +1,79 @@
+@startuml
+left to right direction
+skinparam packageStyle rect 
+skinparam actorStyle Hollow
+
+title Un diagrama de casos d'ús per a CeXtrem
+
+actor Usuari as usuari
+actor Soci as soci
+actor Monitor as monitor
+actor Temps as temps
+
+rectangle CeXtrem {
+
+usecase (UC1. Sign UP)  as UC1 #aliceblue;line:blue;line.bold;text:blue
+usecase (UC2. Sign IN) as UC2  #aliceblue;line:blue;line.bold;text:blue
+usecase (UC3. Reservar Excursio) as UC3
+usecase (UC4. Cercar Excursions ) as UC4
+usecase (UC4.1 Cercar Excursions Per Activitat ) as UC41
+usecase (UC4.2 Cercar Excursions Per Localitat) as UC42
+usecase (UC4.3 Cercar Excursions Per Especie) as UC43  #aliceblue;line:blue;line.bold;text:blue
+usecase (UC4.4 Cercar Excursions Per Temps) as UC44
+usecase (UC5. Sign UP Grup) as UC5
+usecase (UC6. Reservar Excursio Grup) as UC6
+usecase (UC7. Visualitzar Excursio) as UC7
+usecase (UC8. Visualitzar Llista Excursions) as UC8  #aliceblue;line:blue;line.bold;text:blue
+usecase (UC9. Pagament) as UC9
+usecase (UC9.1 Pagament Amb Bizum) as UC91
+usecase (UC9.2 Pagament Amb Compte Bancari) as UC92
+usecase (UC10. Mostrar Llista De Pagaments) as UC10
+usecase (UC11. Comentar Excursió) as UC11
+usecase (UC12. Visualitzar Comentaris) as UC12
+usecase (UC13. Mostrar les 10 Activitats Més Comentades En Els Últims 7 Dies) as UC13
+soci <|- monitor
+
+
+
+
+
+
+UC4 <|-- UC44
+UC4 <|-- UC43
+UC4 <|-- UC42
+UC4 <|-- UC41
+
+soci - UC3
+soci - UC4
+soci - UC8
+soci - UC7
+soci - UC10
+soci - UC11
+soci - UC13
+
+
+UC7 .> UC3 : <<extends>>
+UC5 .> UC1 : <<include>>
+
+
+monitor - UC5
+monitor - UC6
+UC7 .> UC12 : <<extends>>
+UC6 .> UC3 : <<include>>
+UC8 .-> UC7 : <<include>>
+monitor -- UC2
+soci - UC2
+temps -- UC44
+usuari -- UC1
+UC3 .> UC9 : <<include>>
+UC9 <|-- UC91
+UC9 <|-- UC92
+UC9 .> UC11 : <<extends>>
+
+}
+
+
+
+@enduml
+
+

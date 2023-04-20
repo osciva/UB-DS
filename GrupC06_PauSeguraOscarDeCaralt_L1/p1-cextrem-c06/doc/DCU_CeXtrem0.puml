@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+skinparam actorStyle Hollow
+left to right direction
+
+actor UsuariNoRegistrat
+actor Soci
+
+rectangle CeXtrem {
+UsuariNoRegistrat -- (Registrar-se)
+(Llistar Excursions) as (llistar)
+(Llistar Per Nom) as (PerNom)
+Soci -- (Login)
+Soci -- (llistar)
+llistar <|-- (PerNom)
+llistar <|-- (PerData)
+}
+
+note bottom of Soci : Rol de Soci ja enregistrat
+
+
+@enduml

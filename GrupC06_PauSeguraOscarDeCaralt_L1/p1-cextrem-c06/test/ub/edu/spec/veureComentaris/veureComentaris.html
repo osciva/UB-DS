@@ -1,0 +1,47 @@
+<html xmlns:c="http://www.concordion.org/2007/concordion">
+<head>
+    <title>US12: Veure Comentaris </title>
+    <h5>Com a soci de ceXtrem</h5>
+    <h5>Vull veure els comentaris </h5>
+    <h5>Per saber com és l'excursió</h5>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h2>Acceptance criteria 12.1: Veure Comentaris: No hi ha comentaris</h2>
+<p>
+    El sistema dona opció de veure comentaris, però no hi ha cap
+</p>
+<div c:example="one">
+    <h4>Exemple del test d'acceptació 12.1</h4>
+    Volem veure els comentaris, però no hi ha:
+    <span c:set="#excursio">El PedraForca</span>
+    el sistema hauria de donar <span c:assertEquals="visualitzar(#excursio)">No hi ha comentaris disponibles</span>.
+</div>
+<h2>Acceptance Criteria 12.2: Veure Comentaris: Comentaris disponibles:</h2>
+<p>
+    El sistema dona opció de veure comentaris i hi ha comentaris disponibles.
+</p>
+<div c:example="two">
+
+    <table c:execute="#valid=visualitzar(#excursio)">
+        <tr>
+
+            <th c:set="#excursio">excursio</th>
+            <th c:assertEquals="#valid">Valid</th>
+        </tr>
+        <tr>
+
+            <td>Castell de Cardona</td>
+            <td></td>
+
+        </tr>
+        <tr>
+
+            <td>Castell de Cardona</td>
+            <td>Una experiencia horrible</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

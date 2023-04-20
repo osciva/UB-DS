@@ -1,0 +1,79 @@
+<html xmlns:c="http://www.concordion.org/2007/concordion">
+<head>
+    <title>US10. Mostrar Llista de Pagaments</title>
+    <h5>Com a soci de ceXtrem</h5>
+    <h5>Vull veure la llista de l'estat de pagament de les excursions</h5>
+    <h5>Per veure-la</h5>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>US10: Llistar els pagaments</h1>
+<p>
+    Els pagaments amb les seves dates són les següents:
+<table>
+    <tr>
+        <th>Pagament</th>
+
+    </tr>
+    <tr>
+        <td>37,25</td>
+
+    </tr>
+    <tr>
+        <td>67</td>
+
+    </tr>
+    <tr>
+        <td>11,99</td>
+
+    </tr>
+    <tr>
+        <td>20</td>
+
+    </tr>
+
+</table>
+</p>
+<h2>Criteri d'acceptació UC 10.2</h2>
+<p>
+    El sistema llista tots els pagaments, però no hi ha cap.
+</p>
+<div c:example="one">
+    <table c:verify-rows="#llistaPagaments : listPagaments(#excursio)">
+        <tr>
+            <th c:assert-equals="#excursio">Llista de pagaments per Excursio:</th>
+        </tr>
+        <tr>
+            <td>"No hi ha cap pagament disponible"</td>
+        </tr>
+
+    </table>
+</div>
+
+
+<h2>Criteri d'acceptació UC 10.2</h2>
+<p>
+    El sistema llista tots els pagaments:
+</p>
+<div c:example="two">
+    <table c:verify-rows="#llistaPagaments : listPagaments(#excursio)">
+        <tr>
+            <th c:assert-equals="#pagaments">Llista de pagaments: </th>
+        </tr>
+        <tr>
+            <td>45 ---> 29/8/2021</td>
+        </tr>
+        <tr>
+            <td>15 ---> 19/7/2021</td>
+        </tr>
+        <tr>
+            <td>90 ---> 26/7/2021</td>
+        </tr>
+        <tr>
+            <td>12 ---> 7/8/2021</td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>

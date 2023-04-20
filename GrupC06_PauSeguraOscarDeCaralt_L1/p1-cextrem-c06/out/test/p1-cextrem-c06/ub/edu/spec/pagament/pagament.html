@@ -1,0 +1,55 @@
+<html xmlns:c="http://www.concordion.org/2007/concordion">
+<head>
+    <title>US9: Pagament</title>
+    <h5>Com a soci de ceXtrem</h5>
+    <h5>Vull pagar una excursió </h5>
+    <h5>Per poder realitzar-la</h5>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h2>Acceptance criteria 9.1: Pagament: falten diners al compte</h2>
+<p>
+    El sistema dona opció de pagar però l'usuari no està registrat
+</p>
+<div c:example="one">
+    <h4>Exemple del test d'acceptació 9.1</h4>
+    L'usuari no està registrat:
+    <span c:set="#soci">oscar@gmail.com</span>  amb compte <span c:set="#compte">1234</span>
+    el sistema hauria de donar <span c:assertEquals="comanda(#soci, #compte)">Error en el pagament</span>.
+</div>
+
+<h2>Acceptance criteria 9.2: Pagament: falten diners al compte</h2>
+<p>
+    El sistema dona opció de pagar però l'usuari introdueix un compte inexistent
+</p>
+<div c:example="two">
+    <h4>Exemple del test d'acceptació 9.2</h4>
+    Possem un compte inexistent:
+    <span c:set="#soci">ajaleo@gmail.com</span>  amb compte <span c:set="#compte">1111</span>
+    el sistema hauria de donar <span c:assertEquals="comanda(#soci, #compte)">Error en el pagament</span>.
+</div>
+<h2>Acceptance Criteria 9.3:  Pagament: Pagament correcte</h2>
+<p>
+    El sistema dona opció de pagar i les dades introduïdes són correctes.
+</p>
+<div c:example="three">
+    <table c:execute="#valid=comanda(#soci, #compte)">
+        <tr>
+            <th c:set="#soci">Identificació del soci</th>
+            <th c:set="#compte">Num Compte</th>
+            <th c:assertEquals="#valid">Valid</th>
+        </tr>
+        <tr>
+            <td>ajaleo@gmail.com</td>
+            <td>1234</td>
+            <td>Pagament correcte</td>
+        </tr>
+        <tr>
+            <td>heisenberg@gmail.com</td>
+            <td>6666</td>
+            <td>Error en el pagament</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+    <title> US11: comentarExcursio</title>
+    <h3>Com a soci de ceXtrem</h3>
+    <h3>Vull comentar una excursió que he realitzat</h3>
+    <h3>Per donar la meva opinió</h3>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Acceptance Criteria 11.1: No hi ha text </h1>
+<p>
+    El sistema dona opció de comentar pero el cos del text està buit
+</p>
+<div concordion:example="one">
+    <h2>Exemple del test d'acceptació 11.1</h2>
+    Posem un comentari buit
+    <span   concordion:set="#excursio"> Delta de l'Ebre </span><span   concordion:set="#text"></span> amb la excursió
+    pagada <span   concordion:set="#pagat"> True </span> el sistema hauria de donar:
+    <span concordion:assert-equals="comentar(#excursio,#text,#pagat)">No has escrit res</span>
+
+
+</div>
+<h1>Acceptance Criteria 11.2: No has fet la excursió </h1>
+<p>
+    El sistema dona opció de comentar pero el soci no ha fet la excursió
+
+</p>
+<div concordion:example="two">
+    <h2>Exemple del test d'acceptació 11.2</h2>
+    Posem un comentari sense haver fet la excursió:
+    <span   concordion:set="#excursio"> El PedraForca </span><span concordion:set="#text"> "Una excursió molt maca i recomanable de fer"</span> amb la excursió sense pagar: <span concordion:set="#pagat">
+    False </span>
+    el sistema hauria de donar: <span concordion:assert-equals="comentar(#excursio,#text,#pagat)"> No es pot penjar el comentari perquè no has pagat l'excursió </span>
+
+
+</div>
+
+<h1>Acceptance Criteria 11.3: Comentari correcte</h1>
+<p>
+    El sistema dona opció a comentar i tots els requisits son correctes. El sistema retorna el missatge introduït
+</p>
+<div concordion:example="three">
+    <table concordion:execute="#valid = comentar(#excursio,#text, #pagat)">
+        <tr>
+            <th concordion:set="#excursio">Excursió</th>
+            <th concordion:set="#text">Comentari</th>
+            <th concordion:set="#pagat">S'ha pagat l'excursió?</th>
+            <th concordion:assertEquals="#valid">Resultat</th>
+        </tr>
+        <tr>
+            <td>Delta de l'Ebre</td>
+            <td>Una excursió molt maca i recomanable de fer</td>
+            <td>True</td>
+            <td>Una excursió molt maca i recomanable de fer</td>
+        </tr>
+        <tr>
+            <td>La Foradada</td>
+            <td>M'ha agradat molt l'excursió</td>
+            <td>False</td>
+            <td>No es pot penjar el comentari perquè no has pagat l'excursió</td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>
