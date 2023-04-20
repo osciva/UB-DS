@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="361.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ub.edu.view.EscenaPayPal">
+    <children>
+        <Text layoutX="92.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PayPal" textAlignment="CENTER" wrappingWidth="312.0">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Text>
+        <Text fx:id="activitat_text" layoutX="92.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom Activitat" textAlignment="CENTER" wrappingWidth="312.0">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+        <Text fx:id="data_text" layoutX="92.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dades Activitat" textAlignment="CENTER" wrappingWidth="312.0">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Text>
+
+
+        <Button fx:id="pagar_btn" layoutX="219.0" layoutY="297.0" text="Pagar" />
+        <TextField fx:id="correu_text" layoutX="180.0" layoutY="178.0" prefHeight="31.0" prefWidth="208.0" text="cextrem@pagaments.com" />
+        <TextField fx:id="preu_text" layoutX="181.0" layoutY="236.0" prefHeight="31.0" prefWidth="208.0" />
+
+        <Text layoutX="63.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correu ceXtrem" />
+        <Text layoutX="134.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preu" />
+    </children>
+
+
+</AnchorPane>
