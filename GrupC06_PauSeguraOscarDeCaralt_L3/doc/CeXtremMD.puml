@@ -1,0 +1,138 @@
+
+@startuml
+skinparam classAttributeIconSize 0
+title Classes - Model Domain Diagram
+
+Activitat <|-- Risc
+Persona <|-- Monitor
+Persona <|-- Soci
+Especie <|-- Animal
+Especie <|-- Vegetal
+MetodePagament <|-- Bizum
+MetodePagament <|-- CompteBancaria
+EstatPagament <|-- Pendent
+EstatPagament <|-- Pagat
+
+Grup "*" --- "*" Soci: te
+Monitor "1" --- "*" Grup: guia
+
+CentreExcursionista "1" --- "*" Soci: estan_apuntats
+CentreExcursionista "1"--- "*" EspecificacioExcursio : ofereix
+CentreExcursionista "1" --- "*" Persona: gestiona
+
+Excursio "*"---"*" Soci: inscriu
+EspecificacioExcursio "1" --- "1" Lloc : parteix
+EspecificacioExcursio "1" --- "1" Lloc : finalitza
+
+
+EspecificacioExcursio "1" -- "*" Excursio : descriu
+EspecificacioExcursio "1" -- "*" Activitat : inclou
+
+EspecificacioExcursio "1" -- "1" Itinerari : fa
+
+Excursio "1"---"*" Activitat: ofereix
+Itinerari o-- Lloc : passa_per
+
+EspecificacioActivitat "1" --- "*" Activitat: descriu
+EspecificacioExcursio "1" --- "*" EspecificacioActivitat: conte
+
+EspecificacioActivitat "1"---"*" Comentari: conte
+
+Soci "*" -- "1..*" Activitat : participen
+
+Soci "1" -- "1" MetodePagament: disposa
+
+Persona "1" -- "1" Direccio : resideix
+
+Lloc "1..*" -- "1" ZonaGeografica : pertanyen
+
+ZonaGeografica "1" -- "1..*" Especie : existeixen
+
+Monitor "1" --- "*" Risc : controla
+
+Soci "1" --- "*" Comentari : annota
+EstatPagament "1" --- "1" Pagament : estaEn
+Soci "1" --- "*" Pagament : realitza
+Activitat "1" --- "1" Pagament : compra
+MetodePagament "1" --- "1" Pagament : usa
+
+class CentreExcursionista
+class Persona{
++ nom : String
++ cognom: String
++ data_neix: Date
+- dni: String
+}
+class Monitor{
+- num_monitor: int
+}
+class Direccio{
++ carrer: String
++ poblacio: String
++ codi_postal: String
+}
+class Soci  #aliceblue;line:blue;line.bold;text:blue{
+- num_soci: int
+}
+class EspecificacioExcursio #aliceblue;line:blue;line.bold;text:blue {
+- id_Excursio: int
++ nom: String
++ preu: float
++ num_max: int
+}
+class Excursio  #aliceblue;line:blue;line.bold;text:blue{
++ data: Date
+}
+class Itinerari {
+- id_Iinerari: int
++ kms: float
++ temps: float
++ desnivell: float
+}
+class Lloc{
+- idLloc: int
++ altitud: String
++ latitud: float
++ longitud: float
+}
+class ZonaGeografica{
++ nom: String
+- id_zona: int
+}
+class MetodePagament #wheat;line:red;line.bold;text:red {
+- num_id: int
+}
+class Bizum #wheat;line:red;line.bold;text:red {
+- num_id: int
+- num_telefon: String
+}
+class CompteBancaria #wheat;line:red;line.bold;text:red {
+- num_id: int
++ iban: String
+}
+class EspecificacioActivitat #wheat;line:red;line.bold;text:red {
++ nom : String
+- id_act: int
++ preu: float
+}
+class Activitat #wheat;line:red;line.bold;text:red {
+- id_act: int
+}
+class Especie  #aliceblue;line:blue;line.bold;text:blue{
++ nom: String
+}
+class Risc{
++ edat_min: int
+}
+class Animal
+class Vegetal
+class Comentari #wheat;line:red;line.bold;text:red {
++ comentari: String
+}
+class Pagament #wheat;line:red;line.bold;text:red {
+- num_id: int
+}
+class EstatPagament #wheat;line:red;line.bold;text:red {}
+class Pagat #wheat;line:red;line.bold;text:red {}
+class Pendent #wheat;line:red;line.bold;text:red {}
+@enduml
