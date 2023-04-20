@@ -1,0 +1,91 @@
+<html xmlns:c="http://www.concordion.org/2007/concordion" lang="ca-ES">
+<head>
+    <title>UC9: Pagar Activitat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>UC9: Pagar Activitat</h1>
+
+<h2>Acceptance Criteria 9.1: Excursio no enregistrada</h2>
+<div c:example="one">
+    <h5>Example del test d'acceptació 9.1</h5>
+    <p>
+        Posem un usuari existent
+        <span c:set="#user">ajaleo@gmail.com</span>
+        amb una excursio inexistent
+        <span c:set="#excursio">Marina D'Or</span>
+        i una activitat
+        <span c:set="#activitat">Escalada</span>
+        el sistema hauria de donar
+        <span c:assertEquals="pagarActivitat(#user, #excursio, #activitat)">Excursio no existent</span>.
+    </p>
+</div>
+
+<h2>Acceptance Criteria 9.2: Activitat no enregistrada</h2>
+<div c:example="two">
+    <h5>Example del test d'acceptació 9.2</h5>
+    <p>
+        Posem un usuari existent
+        <span c:set="#user">ajaleo@gmail.com</span>
+        amb una excursio
+        <span c:set="#excursio">Delta de l'Ebre</span>
+        i una activitat inexistent
+        <span c:set="#activitat">Escalada</span>
+        el sistema hauria de donar
+        <span c:assertEquals="pagarActivitat(#user, #excursio, #activitat)">Activitat no existent</span>.
+    </p>
+</div>
+
+<h2>Acceptance Criteria 9.3: No hi ha metode de pagament</h2>
+<div c:example="three">
+    <h5>Example del test d'acceptació 9.3</h5>
+    <p>
+        Posem un usuari existent
+        <span c:set="#user">ajaleo@gmail.com</span>
+        sense metode de pagament, amb una excursio
+        <span c:set="#excursio">Delta de l'Ebre</span>
+        i una activitat inexistent
+        <span c:set="#activitat">Ciclisme</span>
+        el sistema hauria de donar
+        <span c:assertEquals="pagarActivitat(#user, #excursio, #activitat)">No hi ha metode de pagament registrat</span>.
+    </p>
+</div>
+
+<h2>Acceptance Criteria 9.4: Pagament pendent</h2>
+<div c:example="four">
+    <h5>Example del test d'acceptació 9.4</h5>
+    <p>
+        Posem un usuari existent
+        <span c:set="#user">ajaleo@gmail.com</span>
+        amb IBAN <span c:set="#iban">ES66 6666 6666 6666</span>,
+        metode de pagament de
+        <span c:execute="afegirCompteBancari(#user, #iban)">compte bancari</span>,
+        una excursio
+        <span c:set="#excursio">Delta de l'Ebre</span>
+        i una activitat
+        <span c:set="#activitat">Ciclisme</span>
+        el sistema hauria de donar
+        <span c:assertEquals="pagarActivitat(#user, #excursio, #activitat)">Pagament pendent</span>.
+    </p>
+</div>
+
+<h2>Acceptance Criteria 9.5: Pagament complert</h2>
+<div c:example="five">
+    <h5>Example del test d'acceptació 9.5</h5>
+    <p>
+        Posem un usuari existent
+        <span c:set="#user">dtomacal@yahoo.cat</span>
+        amb telefon <span c:set="#telefon">666 666 666</span>,
+        metode de pagament de
+        <span c:execute="afegirBizum(#user, #telefon)">Bizum</span>,
+        una excursio
+        <span c:set="#excursio">Delta de l'Ebre</span>
+        i una activitat
+        <span c:set="#activitat">Ciclisme</span>
+        el sistema hauria de donar
+        <span c:assertEquals="pagarActivitat(#user, #excursio, #activitat)">Pagament complert</span>.
+    </p>
+</div>
+
+</body>
+</html>

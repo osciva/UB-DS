@@ -1,0 +1,53 @@
+<html xmlns:c="http://www.concordion.org/2007/concordion" lang="ca-ES">
+<head>
+    <title>UC10: Visualitzar Pagaments Soci</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>UC10: Visualitzar Pagaments Soci</h1>
+
+<h2>Acceptance Criteria 10.1: Cap pagament</h2>
+<div c:example="one">
+    <h5>Example del test d'acceptació 10.1</h5>
+    <p>
+        Posem un usuari existent
+        <span c:set="#user">ajaleo@gmail.com</span>
+        sense pagaments.
+    </p>
+    <table c:verify-rows="#pagament : llistarPagaments(#user)">
+        <tr>
+            <th c:assert-equals="#pagament">Llistat de pagaments del soci:</th>
+        </tr>
+        <tr>
+            <td>No hi ha pagaments</td>
+        </tr>
+    </table>
+</div>
+
+<h2>Acceptance Criteria 10.2: Hi ha pagaments</h2>
+<div c:example="two">
+    <h5>Example del test d'acceptació 10.2</h5>
+    <p>
+        Posem un usuari existent
+        <span c:set="#user">ajaleo@gmail.com</span>
+        amb
+        <span c:execute="initUser(#user)">pagaments</span>.
+    </p>
+    <table c:verify-rows="#pagament : llistarPagaments(#user)">
+        <tr>
+            <th c:assert-equals="#pagament">Llistat de pagaments del soci:</th>
+        </tr>
+        <tr>
+            <td>Delta de l'Ebre - Ciclisme (Pagat)</td>
+        </tr>
+        <tr>
+            <td>La Foradada - Escalada (Pagat)</td>
+        </tr>
+        <tr>
+            <td>Delta de l'Ebre - Kayak (Pendent)</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,507 @@
+@startuml
+
+title __P3-CEXTREM-C06's Class Diagram__\n
+
+  namespace ub.edu.controller {
+      class ub.edu.controller.Controller {
+              + Controller()
+              + addActivitat()
+              + addExcursio()
+              + afegirBizum()
+              + afegirCompteBancari()
+              + afegirEspecie()
+              + afegirEspecieExcursio()
+              + cercaExcursions()
+              + comentarActivitat()
+              + findSoci()
+              + llistarCatalegExcursionsPerData()
+              + llistarCatalegExcursionsPerNom()
+              + llistarComentaris()
+              + llistarPagaments()
+              + loguejarSoci()
+              + pagarActivitat()
+              + recuperarContrassenya()
+              + top10ActivitatsPerComentaris()
+              + validatePassword()
+              + validateRegisterSoci()
+              + validateUsername()
+      }
+    }
+
+
+    namespace ub.edu.model {
+      class ub.edu.model.Activitat {
+              - comentaris : ArrayList<Comentari>
+              - nom : String
+              - nomExcursio : String
+              - preu : float
+              + Activitat()
+              + Activitat()
+              + addActivitat()
+              + addComentari()
+              + getComentaris()
+              + getNom()
+              + getNomExcursio()
+              + getPreu()
+          }
+
+
+    }
+
+
+    namespace ub.edu.model {
+      class ub.edu.model.Bizum {
+           - telefon : String
+           - missatge : String
+           - comptador: int
+           + Bizum()
+           + getTelefon()
+           + getMissatge()
+           + validarNumero()
+           + completar()
+           + hasDelay()
+           + getComptador()
+           + setComptador()
+           + comptador()
+           + imprimir()
+      }
+    }
+    namespace ub.edu.model{
+     class ub.edu.model.PayPal{
+           - correu: String
+           - comptador : int
+           + PayPal()
+           + hasDelay()
+           + getCorreu()
+           + validarCorreu()
+           + completar()
+           + getComptador()
+           + setComptador()
+           + comptador()
+           + imprimir()
+         }
+      }
+
+
+    namespace ub.edu.model {
+      class ub.edu.model.CarteraSocis {
+              - llista : List<Soci>
+              + CarteraSocis()
+              + afegirBizum()
+              + afegirCompteBancari()
+              + find()
+              + findSoci()
+      }
+    }
+
+
+    namespace ub.edu.model {
+      class ub.edu.model.Cextrem {
+          - excursionsMap : Map<String, Excursio>
+                  + Cextrem()
+                  + addActivitat()
+                  + addExcursio()
+                  + afegirBizum()
+                  + afegirCompteBancari()
+                  + afegirEspecie()
+                  + afegirEspecieExcursio()
+                  + cercaExcursions()
+                  + comentarActivitat()
+                  + findSoci()
+                  + iniCarteraSocis()
+                  + iniComentaris()
+                  + iniEspecies()
+                  + iniExcursionsMap()
+                  + iniLogin()
+                  + iniPagaments()
+                  + llistarCatalegExcursionsPerData()
+                  + llistarCatalegExcursionsPerNom()
+                  + llistarComentaris()
+                  + llistarPagaments()
+                  + loguejarSoci()
+                  + pagarActivitat()
+                  + recuperarContrassenya()
+                  + top10ActivitatsPerComentaris()
+                  + validatePassword()
+                  + validateRegisterSoci()
+                  + validateUsername()
+      }
+    }
+
+
+     namespace ub.edu.model {
+        class ub.edu.model.Comentari {
+            - autor : String
+            - comentari : String
+            + Comentari()
+            + getAutor()
+            + getComentari()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        class ub.edu.model.CompteBancaria {
+            - visa : String
+            - cad: String
+            - codi: String
+            - comptador : int
+
+            + CompteBancaria()
+            + getVisa()
+            + getCodi()
+            + getCad()
+            + hasDelay()
+            + validarCompte()
+            + completar()
+            + getComptador()
+            + setComptador()
+            + comptador()
+            + imprimir()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        class ub.edu.model.Especie {
+            - nom : String
+            + Especie()
+            + getNom()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        class ub.edu.model.Excursio {
+            - activitatsMap : Map<String, Activitat>
+            - data : LocalDate
+            - llistaEspecies : Set<Especie>
+            - nom : String
+            + Excursio()
+            + Excursio()
+            + addActivitat()
+            + addEspecie()
+            + containsEspecie()
+            + getActivitat()
+            + getActivitatsMap()
+            + getData()
+            + getNom()
+            + setData()
+            + setNom()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        class ub.edu.model.LlistaComentaris {
+            + LlistaComentaris()
+            + comentarActivitat()
+            + llistarComentaris()
+            + top10ActivitatsPerComentaris()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        class ub.edu.model.LlistaEspecies {
+            - especiesMap : Map<String, Especie>
+            + LlistaEspecies()
+            + afegirEspecie()
+            + afegirEspecieExcursio()
+            + cercaExcursions()
+            + comptarExcursionsEspecie()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        class ub.edu.model.LlistaExcursions {
+            - excursionsMap : Map<String, Excursio>
+            + LlistaExcursions()
+            + addActivitat()
+            + addExcursio()
+            + getExcursionsList()
+            + getExcursionsMap()
+            + llistarCatalegExcursionsPerData()
+            + llistarCatalegExcursionsPerNom()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        class ub.edu.model.LlistaPagaments {
+            + LlistaPagaments()
+            + llistarPagaments()
+            + pagarActivitat()
+            + stats()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        class ub.edu.model.Login {
+            + Login()
+            + isMail()
+            + isPasswordSegur()
+            + loguejarSoci()
+            + recuperarContrassenya()
+            + validatePassword()
+            + validateRegisterSoci()
+            + validateUsername()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        interface ub.edu.model.MetodePagament {
+            {abstract} + hasDelay()
+            {abstract} + pagar()
+            {abstract} + imprimir()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        class ub.edu.model.Pagament {
+            - nomActivitat : String
+            - nomExcursio : String
+            - pendent : boolean
+            + Pagament()
+            + getNomActivitat()
+            + getNomExcursio()
+            + isPendent()
+            + setPaid()
+        }
+      }
+
+
+      namespace ub.edu.model {
+        class ub.edu.model.Soci {
+            - activitatsComprades : ArrayList<Pagament>
+            - nom : String
+            - pwd : String
+            + Soci()
+            + addActivitatComprada()
+            + getActivitatsComprades()
+            + getMetodePagament()
+            + getName()
+            + getPwd()
+            + setMetodePagament()
+            + setName()
+            + setPwd()
+        }
+      }
+
+
+
+
+    ub.edu.controller.Controller o-- ub.edu.model.Cextrem : cextrem
+    ub.edu.model.Bizum .up.|> ub.edu.model.MetodePagament
+    ub.edu.model.Cextrem o--r ub.edu.model.CarteraSocis : conte
+    ub.edu.model.Cextrem --- ub.edu.model.LlistaComentaris : disposa de
+    ub.edu.model.Cextrem --- ub.edu.model.LlistaEspecies : disposa de
+    ub.edu.model.Cextrem --- ub.edu.model.LlistaExcursions : disposa de
+    ub.edu.model.Cextrem --- ub.edu.model.LlistaPagaments : disposa de
+    ub.edu.model.Cextrem --- ub.edu.model.Login : executa
+    ub.edu.model.CompteBancaria .up.|> ub.edu.model.MetodePagament
+    ub.edu.model.LlistaComentaris o-- ub.edu.model.CarteraSocis
+    ub.edu.model.LlistaComentaris o-- ub.edu.model.LlistaExcursions : tenen
+    ub.edu.model.LlistaEspecies o-- ub.edu.model.LlistaExcursions : tenen
+    ub.edu.model.LlistaPagaments o-- ub.edu.model.CarteraSocis : disposa de
+    ub.edu.model.LlistaPagaments o-- ub.edu.model.LlistaExcursions
+
+    ub.edu.model.Soci o-- ub.edu.model.Pagament : realitza
+
+    ub.edu.model.Login o-r- ub.edu.model.Soci
+
+    ub.edu.model.Excursio *--u ub.edu.model.LlistaExcursions
+    ub.edu.model.Soci *-o ub.edu.model.CarteraSocis
+    ub.edu.model.Excursio *-- ub.edu.model.Activitat
+
+    ub.edu.model.Excursio o-r-- ub.edu.model.Especie
+    ub.edu.model.Pagament *-- ub.edu.model.LlistaPagaments
+    ub.edu.model.MetodePagament --r- ub.edu.model.Pagament : implementa
+
+    ub.edu.model.Especie *-l- ub.edu.model.LlistaEspecies
+    ub.edu.model.Comentari *-r- ub.edu.model.LlistaComentaris
+    ub.edu.model.Activitat o--u- ub.edu.model.LlistaComentaris
+
+
+    ub.edu.model.Soci *-- ub.edu.model.LlistaExcursions
+    ub.edu.model.PayPal .up.|> ub.edu.model.MetodePagament
+
+    namespace ub.edu.resources.dao {
+        interface ub.edu.resources.dao.DAO {
+            {abstract} + getAll()
+            {abstract} + getById()
+            {abstract} + add()
+            {abstract} + update()
+            {abstract} + delete()
+        }
+      }
+
+
+      namespace ub.edu.resources.dao {
+        interface ub.edu.resources.dao.DAOCarteraSocis {
+            {abstract} + addCarteraSocis()
+            {abstract} + getAll()
+            {abstract} + getById()
+            {abstract} + add()
+            {abstract} + update()
+            {abstract} + delete()
+        }
+      }
+
+
+      namespace ub.edu.resources.dao {
+        interface ub.edu.resources.dao.DAOEspecie {
+            {abstract} + addEspecie()
+            {abstract} + afegirEspecieExcursio()
+            {abstract} + afegirEspecies()
+            {abstract} + getAll()
+            {abstract} + getById()
+            {abstract} + add()
+            {abstract} + update()
+            {abstract} + delete()
+        }
+      }
+
+
+      namespace ub.edu.resources.dao {
+        interface ub.edu.resources.dao.DAOExcursio {
+            {abstract} + addExcursio()
+            {abstract} + getAll()
+            {abstract} + getById()
+            {abstract} + add()
+            {abstract} + update()
+            {abstract} + delete()
+        }
+      }
+
+
+      namespace ub.edu.resources.dao {
+        interface ub.edu.resources.dao.DAOSoci {
+            {abstract} + findSociByUserNameAndPassword()
+            {abstract} + getAll()
+            {abstract} + getById()
+            {abstract} + add()
+            {abstract} + update()
+            {abstract} + delete()
+        }
+      }
+
+
+      namespace ub.edu.resources.dao {
+        namespace MOCK {
+          class ub.edu.resources.dao.MOCK.DAOEspecieMOCK {
+            - llistaEspecies: Map<String, Especie>
+            + addEspecie()
+            + afegirEspecieExcursio()
+            + afegirEspecies()
+            + getAll()
+            + getById()
+            + add()
+            + update()
+            + delete()
+          }
+        }
+      }
+
+
+      namespace ub.edu.resources.dao {
+        namespace MOCK {
+          class ub.edu.resources.dao.MOCK.DAOExcursioMOCK {
+            - idexcursio: Map<String, Excursio>
+            + DAOExcursioMOCK()
+            + getAll()
+            + getById()
+            + addExcursio()
+            + update()
+            + delete()
+
+          }
+        }
+      }
+
+
+      namespace ub.edu.resources.dao {
+        namespace MOCK {
+          class ub.edu.resources.dao.MOCK.DAOSociMOCK {
+            - listSocis: Map<String, Soci>
+            + DAOSociMOCK()
+            + getAll()
+            + getById()
+            + add()
+            + update()
+            + delete()
+            + findSociByUserNameAndPassword()
+
+
+          }
+        }
+      }
+
+
+      namespace ub.edu.resources.service {
+        interface ub.edu.resources.service.AbstractFactoryData {
+            {abstract} + createDAOSoci()
+            {abstract} + createDAOExcursio()
+            {abstract} + createDAOEspecie()
+
+        }
+      }
+
+
+      namespace ub.edu.resources.service {
+        class ub.edu.resources.service.DataService {
+
+              + DataService()
+              - daoExcursio: DAOExcursio
+              - daoSoci: DAOSoci
+              - daoEspecie: DAOEspecie
+              + getSociByUsername()
+              + getAllSocis()
+              + getAllExcursions()
+              + getExcursioByName
+              + getEspecieByName
+              + getAllEspecies()
+        }
+      }
+
+
+      namespace ub.edu.resources.service {
+        class ub.edu.resources.service.FactoryMOCK {
+            + createDAOSoci()
+            + createDAOExcursio()
+            + createDAOEspecie()
+            + createDAOCarteraSocis()
+        }
+      }
+
+
+
+      ub.edu.controller.Controller o-- ub.edu.resources.service.DataService
+
+      ub.edu.resources.dao.MOCK.DAOEspecieMOCK .up.|> ub.edu.resources.dao.DAOEspecie : implementa
+      ub.edu.resources.dao.MOCK.DAOExcursioMOCK .up.|> ub.edu.resources.dao.DAOExcursio : implementa
+      ub.edu.resources.dao.MOCK.DAOSociMOCK .up.|> ub.edu.resources.dao.DAOSoci : implementa
+
+      ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO
+      ub.edu.resources.service.FactoryMOCK .up.|> ub.edu.resources.service.AbstractFactoryData : implementa
+
+      ub.edu.resources.dao.DAOCarteraSocis .up.|>  ub.edu.resources.dao.DAO
+      ub.edu.resources.dao.DAOEspecie .up.|>  ub.edu.resources.dao.DAO
+      ub.edu.resources.dao.DAOExcursio .up.|>  ub.edu.resources.dao.DAO
+      ub.edu.resources.dao.DAOSoci .up.|>  ub.edu.resources.dao.DAO
+      ub.edu.resources.service.DataService o-- ub.edu.resources.service.FactoryMOCK
+
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

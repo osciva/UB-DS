@@ -1,0 +1,291 @@
+@startuml
+
+title __MODEL's Class Diagram__\n
+
+  namespace ub.edu.model {
+    class ub.edu.model.Activitat {
+        - comentaris : ArrayList<Comentari>
+        - nom : String
+        - nomExcursio : String
+        - preu : float
+        + Activitat()
+        + Activitat()
+        + addActivitat()
+        + addComentari()
+        + getComentaris()
+        + getNom()
+        + getNomExcursio()
+        + getPreu()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.Bizum {
+        ~ sc : Scanner
+        - missatge : String
+        - telefon : String
+        + Bizum()
+        + completar()
+        + getTelefon()
+        + hasDelay()
+        + validarNumero()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.CarteraSocis {
+        - llista : List<Soci>
+        + CarteraSocis()
+        + afegirBizum()
+        + afegirCompteBancari()
+        + find()
+        + findSoci()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.Cextrem {
+        - excursionsMap : Map<String, Excursio>
+        + Cextrem()
+        + addActivitat()
+        + addExcursio()
+        + afegirBizum()
+        + afegirCompteBancari()
+        + afegirEspecie()
+        + afegirEspecieExcursio()
+        + cercaExcursions()
+        + comentarActivitat()
+        + findSoci()
+        + iniCarteraSocis()
+        + iniComentaris()
+        + iniEspecies()
+        + iniExcursionsMap()
+        + iniLogin()
+        + iniPagaments()
+        + llistarCatalegExcursionsPerData()
+        + llistarCatalegExcursionsPerNom()
+        + llistarComentaris()
+        + llistarPagaments()
+        + loguejarSoci()
+        + pagarActivitat()
+        + recuperarContrassenya()
+        + top10ActivitatsPerComentaris()
+        + validatePassword()
+        + validateRegisterSoci()
+        + validateUsername()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.Comentari {
+        - autor : String
+        - comentari : String
+        + Comentari()
+        + getAutor()
+        + getComentari()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.CompteBancaria {
+        ~ sc : Scanner
+        - cad : String
+        - codi : String
+        - visa : String
+        + CompteBancaria()
+        + completar()
+        + getCad()
+        + getCodi()
+        + getVisa()
+        + hasDelay()
+        + setCad()
+        + setCodi()
+        + setVisa()
+        + validarCompte()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.Especie {
+        - nom : String
+        + Especie()
+        + getNom()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.Excursio {
+        - activitatsMap : Map<String, Activitat>
+        - data : LocalDate
+        - llistaEspecies : Set<Especie>
+        - nom : String
+        + Excursio()
+        + Excursio()
+        + addActivitat()
+        + addEspecie()
+        + containsEspecie()
+        + getActivitat()
+        + getActivitatsMap()
+        + getData()
+        + getNom()
+        + setData()
+        + setNom()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.LlistaComentaris {
+        + LlistaComentaris()
+        + comentarActivitat()
+        + llistarComentaris()
+        + top10ActivitatsPerComentaris()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.LlistaEspecies {
+        - especiesMap : Map<String, Especie>
+        + LlistaEspecies()
+        + afegirEspecie()
+        + afegirEspecieExcursio()
+        + cercaExcursions()
+        + comptarExcursionsEspecie()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.LlistaExcursions {
+        - excursionsMap : Map<String, Excursio>
+        + LlistaExcursions()
+        + addActivitat()
+        + addExcursio()
+        + getExcursionsList()
+        + getExcursionsMap()
+        + llistarCatalegExcursionsPerData()
+        + llistarCatalegExcursionsPerNom()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.LlistaPagaments {
+        ~ sc : Scanner
+        + LlistaPagaments()
+        + llistarPagaments()
+        + pagarActivitat()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.Login {
+        + Login()
+        + isMail()
+        + isPasswordSegur()
+        + loguejarSoci()
+        + recuperarContrassenya()
+        + validatePassword()
+        + validateRegisterSoci()
+        + validateUsername()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    interface ub.edu.model.MetodePagament {
+        {abstract} + hasDelay()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.Pagament {
+        ~ sc : Scanner
+        - nomActivitat : String
+        - nomExcursio : String
+        - pendent : boolean
+        + Pagament()
+        + getNomActivitat()
+        + getNomExcursio()
+        + hasDelay()
+        + isPendent()
+        + setPaid()
+        + triaMetode()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.PayPal {
+        ~ sc : Scanner
+        - correu : String
+        + PayPal()
+        + completar()
+        + getCorreu()
+        + hasDelay()
+        + validarCorreu()
+    }
+  }
+  
+
+  namespace ub.edu.model {
+    class ub.edu.model.Soci {
+        - activitatsComprades : ArrayList<Pagament>
+        - nom : String
+        - pwd : String
+        + Soci()
+        + addActivitatComprada()
+        + getActivitatsComprades()
+        + getMetodePagament()
+        + getName()
+        + getPwd()
+        + setMetodePagament()
+        + setName()
+        + setPwd()
+    }
+  }
+  
+
+  ub.edu.model.Bizum .up.|> ub.edu.model.MetodePagament
+  ub.edu.model.Cextrem o-- ub.edu.model.CarteraSocis : carteraSocis
+  ub.edu.model.Cextrem o-- ub.edu.model.LlistaComentaris : llistaComentaris
+  ub.edu.model.Cextrem o-- ub.edu.model.LlistaEspecies : llistaEspecies
+  ub.edu.model.Cextrem o-- ub.edu.model.LlistaExcursions : llistaExcursions
+  ub.edu.model.Cextrem o-- ub.edu.model.LlistaPagaments : llistaPagaments
+  ub.edu.model.Cextrem o-- ub.edu.model.Login : login
+  ub.edu.model.CompteBancaria .up.|> ub.edu.model.MetodePagament
+  ub.edu.model.LlistaComentaris o-- ub.edu.model.CarteraSocis : carteraSocis
+  ub.edu.model.LlistaComentaris o-- ub.edu.model.LlistaExcursions : llistaExcursions
+  ub.edu.model.LlistaEspecies o-- ub.edu.model.LlistaExcursions : llistaExcursions
+  ub.edu.model.LlistaPagaments o-- ub.edu.model.CarteraSocis : carteraSocis
+  ub.edu.model.LlistaPagaments o-- ub.edu.model.LlistaExcursions : llistaExcursions
+  ub.edu.model.LlistaPagaments o-- ub.edu.model.Pagament : pagament
+  ub.edu.model.Login o-- ub.edu.model.CarteraSocis : carteraSocis
+  ub.edu.model.Pagament .up.|> ub.edu.model.MetodePagament
+  ub.edu.model.Pagament o-- ub.edu.model.Activitat : activitat
+  ub.edu.model.Pagament o-- ub.edu.model.Bizum : bizum
+  ub.edu.model.Pagament o-- ub.edu.model.CarteraSocis : carteraSocis
+  ub.edu.model.Pagament o-- ub.edu.model.CompteBancaria : comptebnc
+  ub.edu.model.Pagament o-- ub.edu.model.PayPal : paypal
+  ub.edu.model.PayPal .up.|> ub.edu.model.MetodePagament
+  ub.edu.model.Soci o-- ub.edu.model.MetodePagament : metodePagament
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
