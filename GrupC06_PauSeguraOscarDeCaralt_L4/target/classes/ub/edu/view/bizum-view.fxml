@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="414.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ub.edu.view.EscenaBizum">
+    <children>
+        <Text layoutX="117.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bizum" textAlignment="CENTER" wrappingWidth="312.0">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Text>
+        <Text fx:id="activitat_text" layoutX="118.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom Activitat" textAlignment="CENTER" wrappingWidth="312.0">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+        <Text fx:id="data_text" layoutX="117.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dades Activitat" textAlignment="CENTER" wrappingWidth="312.0">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Text>
+
+
+    <Button fx:id="pagar_btn" layoutX="245.0" layoutY="351.0" text="Pagar" />
+    <TextField fx:id="num_txt" layoutX="180.0" layoutY="178.0" text="633191645" />
+    <TextField fx:id="comment_text" layoutX="180.0" layoutY="242.0" />
+    <TextField fx:id="preu_text" layoutX="180.0" layoutY="296.0" />
+
+    <Text layoutX="63.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telèfon ceXtrem" />
+    <Text layoutX="104.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comentari" />
+    <Text layoutX="138.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preu" />
+    </children>
+
+
+</AnchorPane>

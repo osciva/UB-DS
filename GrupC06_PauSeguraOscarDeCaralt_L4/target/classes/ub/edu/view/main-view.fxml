@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="482.0" prefWidth="1089.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ub.edu.view.EscenaMain">
+   <children>
+      <Text layoutX="479.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cextrem">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <ScrollPane layoutX="25.0" layoutY="139.0" prefHeight="295.0" prefWidth="323.0">
+        <content>
+          <AnchorPane fx:id="excursions_pane" minHeight="0.0" minWidth="0.0" prefHeight="296.0" prefWidth="306.0">
+               <children>
+                  <Button fx:id="excursio_btn" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="288.0" text="Excursio" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button layoutX="25.0" layoutY="444.0" mnemonicParsing="false" onAction="#onOrdenarPerNomButtonClick" prefHeight="24.0" prefWidth="157.0" text="Ordenar per nom" />
+      <Button layoutX="191.0" layoutY="444.0" mnemonicParsing="false" onAction="#onOrdenarPerDataButtonClick" prefHeight="24.0" prefWidth="157.0" text="Ordenar per data" />
+      <Text layoutX="119.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Excursions" textAlignment="CENTER">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <ScrollPane hbarPolicy="NEVER" layoutX="382.0" layoutY="139.0" prefHeight="295.0" prefWidth="323.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="308.0" prefWidth="306.0">
+               <children>
+                  <TableView fx:id="tableTop10Fetes" prefHeight="295.0" prefWidth="306.0">
+                    <columns>
+                       <TableColumn fx:id="excursioFetaColumn" minWidth="0.0" prefWidth="95.20000916719437" text="Excursio" />
+                      <TableColumn fx:id="activitatFetaColumn" prefWidth="99.19998168945312" text="Activitat" />
+                      <TableColumn fx:id="vegadesFetaColumn" minWidth="0.0" prefWidth="111.20000305175779" text="Realitzada" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Text layoutX="420.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 10 Activitats Fetes" textAlignment="CENTER">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <ScrollPane hbarPolicy="NEVER" layoutX="739.0" layoutY="139.0" prefHeight="295.0" prefWidth="323.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="308.0" prefWidth="306.0">
+               <children>
+                  <TableView fx:id="tableTop10Valorades" prefHeight="295.0" prefWidth="306.0">
+                     <columns>
+                        <TableColumn fx:id="excursioValColumn" prefWidth="101.59997254610062" text="Excursio" />
+                        <TableColumn fx:id="activitatValColumn" minWidth="0.0" prefWidth="101.60003662109375" text="Activitat" />
+                        <TableColumn fx:id="valoracioValColumn" minWidth="0.0" prefWidth="103.19996643066406" text="Valoracio" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Text layoutX="809.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 10 Activitats" textAlignment="CENTER">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

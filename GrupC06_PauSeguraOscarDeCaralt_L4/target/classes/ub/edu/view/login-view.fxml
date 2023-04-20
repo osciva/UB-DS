@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="394.0" prefWidth="298.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ub.edu.view.EscenaLogin">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cextrem">
+      <font>
+         <Font size="35.0" />
+      </font>
+   </Text>
+   <TabPane prefHeight="244.0" prefWidth="258.0" tabClosingPolicy="UNAVAILABLE">
+     <tabs>
+       <Tab text="Login">
+         <content>
+           <AnchorPane id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="258.0">
+                  <children>
+                      <Button fx:id="login_btn" layoutX="109.0" layoutY="176.0" onAction="#onLoginButtonClick" text="Login" />
+                     <TextField fx:id="login_correu" layoutX="57.0" layoutY="75.0" text="Albert@gmail.com" />
+                     <PasswordField fx:id="login_pwd" layoutX="56.0" layoutY="139.0" text="Albert123" />
+                     <Text layoutX="56.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correu electrònic" />
+                     <Text layoutX="56.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contrassenya" />
+                     <Text layoutX="97.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+                        <font>
+                           <Font size="24.0" />
+                        </font>
+                     </Text>
+                  </children>
+               </AnchorPane>
+         </content>
+       </Tab>
+         <Tab text="Registre">
+            <content>
+               <AnchorPane id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="258.0">
+                  <children>
+                     <Button fx:id="registre_btn" layoutX="109.0" layoutY="176.0" onAction="#onRegistreButtonClick" text="Registre" />
+                     <TextField fx:id="registre_correu" layoutX="57.0" layoutY="75.0" />
+                     <PasswordField fx:id="registre_pwd" layoutX="56.0" layoutY="139.0" />
+                     <Text layoutX="56.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correu electrònic" />
+                     <Text layoutX="56.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contrassenya" />
+                     <Text layoutX="89.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registre">
+                        <font>
+                           <Font size="24.0" />
+                        </font>
+                     </Text>
+                  </children>
+               </AnchorPane>
+            </content>
+         </Tab>
+     </tabs>
+   </TabPane>
+</VBox>

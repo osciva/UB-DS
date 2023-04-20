@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="434.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ub.edu.view.EscenaLocalitzacio">
+   <children>
+      <Text layoutX="77.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localització:">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="ubicacio_text" layoutX="77.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom ubicació">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+   <ListView fx:id="especies_list" layoutX="59.0" layoutY="198.0" prefHeight="206.0" prefWidth="195.0" />
+      <Text layoutX="116.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Espècies">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Hyperlink fx:id="link_text" alignment="CENTER" contentDisplay="CENTER" layoutY="112.0" prefHeight="40.0" prefWidth="308.0" text="Link Google Maps" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+   </children>
+</AnchorPane>
